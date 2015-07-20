@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edfb2e32_1ec2ad7b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2015-07-20T22:19:32Z",
+      "side": 1,
+      "message": "Nit: Not sure ... but USER as variable name sounds to me,\nlike it should hold a user object, or a user name or\nsomething identifying a user.\n\nWhat about:\n* USER_PLACEHOLDER\n* USER_MARKER\n\nMeh ... I guess USER is ok for now.",
+      "range": {
+        "startLine": 36,
+        "startChar": 30,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "02aebf9f1106d166dbc9c31b76ebdbb9b74ab548",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edfb2e32_3ebd6903",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2015-07-20T22:19:32Z",
+      "side": 1,
+      "message": "This should be \u0027${user}\u0027 too, or one can leave the (%s)\naway altogether.",
+      "range": {
+        "startLine": 66,
+        "startChar": 44,
+        "endLine": 66,
+        "endChar": 46
+      },
+      "revId": "02aebf9f1106d166dbc9c31b76ebdbb9b74ab548",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
