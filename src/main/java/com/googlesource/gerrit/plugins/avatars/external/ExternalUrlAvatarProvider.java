@@ -16,15 +16,16 @@ package com.googlesource.gerrit.plugins.avatars.external;
 
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.annotations.Listen;
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.restapi.Url;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.avatar.AvatarProvider;
 import com.google.gerrit.server.config.CanonicalWebUrl;
-import com.google.gerrit.server.config.GerritServerConfig;
+import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,26 +35,30 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
 
   private static final String REPLACE_MARKER = "%s";
 
+  private final String pluginName;
   private final boolean ssl;
   private String externalAvatarUrl;
   private String avatarChangeUrl;
   private String sizeParameter;
 
   @Inject
-  ExternalUrlAvatarProvider(@CanonicalWebUrl @Nullable String canonicalUrl,
-      @GerritServerConfig Config cfg) {
-    externalAvatarUrl = cfg.getString("avatar", null, "url");
-    avatarChangeUrl = cfg.getString("avatar", null, "changeUrl");
-    sizeParameter = cfg.getString("avatar", null, "sizeParameter");
+  ExternalUrlAvatarProvider(PluginConfigFactory cfgFactory,
+      @PluginName String pluginName,
+      @CanonicalWebUrl @Nullable String canonicalUrl) {
+    this.pluginName = pluginName;
+    PluginConfig cfg = cfgFactory.getFromGerritConfig(pluginName);
+    externalAvatarUrl = cfg.getString("url");
+    avatarChangeUrl = cfg.getString("changeUrl");
+    sizeParameter = cfg.getString("sizeParameter");
     ssl = canonicalUrl != null && canonicalUrl.startsWith("https://");
   }
 
   @Override
   public String getUrl(IdentifiedUser forUser, int imageSize) {
-
     if (externalAvatarUrl == null) {
       Logger log = LoggerFactory.getLogger(ExternalUrlAvatarProvider.class);
-      log.warn("Avatar URL is not configured, cannot show avatars. Please configure avatar.url in etc/gerrit.config");
+      log.warn("Avatar URL is not configured, cannot show avatars. Please configure plugin."
+          + pluginName + ".url in etc/gerrit.config");
       return null;
     }
 
