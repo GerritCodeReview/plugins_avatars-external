@@ -25,4 +25,4 @@ From the plugin directory:
 mvn clean package
 ```
 
-You will find the `external-url-avatar-provider-1.0-SNAPSHOT.jar` file in `target` directory in the plugin directory.
+You will find the `avatars-external-2.12-SNAPSHOT.jar` file in `target` directory in the plugin directory.
