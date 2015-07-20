@@ -16,15 +16,16 @@ package com.googlesource.gerrit.plugins.avatars.external;
 
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.annotations.Listen;
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.restapi.Url;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.avatar.AvatarProvider;
 import com.google.gerrit.server.config.CanonicalWebUrl;
-import com.google.gerrit.server.config.GerritServerConfig;
+import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,11 +41,13 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   private String sizeParameter;
 
   @Inject
-  ExternalUrlAvatarProvider(@CanonicalWebUrl @Nullable String canonicalUrl,
-      @GerritServerConfig Config cfg) {
-    externalAvatarUrl = cfg.getString("avatar", null, "url");
-    avatarChangeUrl = cfg.getString("avatar", null, "changeUrl");
-    sizeParameter = cfg.getString("avatar", null, "sizeParameter");
+  ExternalUrlAvatarProvider(PluginConfigFactory cfgFactory,
+      @PluginName String pluginName,
+      @CanonicalWebUrl @Nullable String canonicalUrl) {
+    PluginConfig cfg = cfgFactory.getFromGerritConfig(pluginName);
+    externalAvatarUrl = cfg.getString("url");
+    avatarChangeUrl = cfg.getString("changeUrl");
+    sizeParameter = cfg.getString("sizeParameter");
     ssl = canonicalUrl != null && canonicalUrl.startsWith("https://");
   }
 
