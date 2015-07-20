@@ -6,15 +6,15 @@ file.
 
 ```
   [plugin "@PLUGIN@"]
-    url = http://example.org/avatars/%s.jpg
+    url = http://example.org/avatars/${user}.jpg
     changeUrl = http://example.org/account.html
     sizeParameter = s=${size}x${size}
 ```
 
 <a id="url">
 `plugin.@PLUGIN@.url`
-:	The location of avatar images containing `%s`, which will then be
-	replaced by the `username`. Required.
+:	The location of avatar images containing `${user}`, which will then
+	be replaced by the `username`. Required.
 
 <a id="changeUrl">
 `plugin.@PLUGIN@.changeUrl`
