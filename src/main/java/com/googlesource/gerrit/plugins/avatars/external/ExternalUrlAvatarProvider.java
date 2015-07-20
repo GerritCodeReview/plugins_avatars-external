@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 @Singleton
 public class ExternalUrlAvatarProvider implements AvatarProvider {
 
-  private static final String REPLACE_MARKER = "%s";
+  private static final String USER = "${user}";
 
   private final boolean ssl;
   private String externalAvatarUrl;
@@ -62,10 +62,10 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
 
     // it is unrealistic that all users share the same avatar image, thus we're
     // warning if we can't find our marker (%s)
-    if (!externalAvatarUrl.contains(REPLACE_MARKER)) {
+    if (!externalAvatarUrl.contains(USER)) {
       Logger log = LoggerFactory.getLogger(ExternalUrlAvatarProvider.class);
       log.warn("Avatar provider url '" + externalAvatarUrl
-          + "' does not contain " + REPLACE_MARKER
+          + "' does not contain " + USER
           + ", so cannot replace it with username");
       return null;
     }
@@ -101,11 +101,11 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
    */
   private String replaceInUrl(String url, String replacement) {
     if (replacement == null || url == null
-        || url.contains(REPLACE_MARKER) == false) {
+        || url.contains(USER) == false) {
       return url;
     }
 
     // as we can't assume anything of 'replacement', we're URL encoding it
-    return url.replace(REPLACE_MARKER, Url.encode(replacement));
+    return url.replace(USER, Url.encode(replacement));
   }
 }
