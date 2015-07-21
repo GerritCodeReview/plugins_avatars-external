@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edfb2e32_1e8bcd29",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2015-07-21T20:26:27Z",
+      "side": 1,
+      "message": "Nit: s/HODLER/HOLDER/\n(\u0027D\u0027 and \u0027L\u0027 are mixed up)",
+      "range": {
+        "startLine": 36,
+        "startChar": 30,
+        "endLine": 36,
+        "endChar": 46
+      },
+      "revId": "cf8f9021fd8db09c99bd6d3f091e29f9cc2c903a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
