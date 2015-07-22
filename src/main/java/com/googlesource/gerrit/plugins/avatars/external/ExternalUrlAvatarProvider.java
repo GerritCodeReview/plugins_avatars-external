@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 @Singleton
 public class ExternalUrlAvatarProvider implements AvatarProvider {
 
-  private static final String REPLACE_MARKER = "%s";
+  private static final String USER_PLACEHOLDER = "${user}";
 
   private final String pluginName;
   private final boolean ssl;
@@ -63,11 +63,11 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     }
 
     // it is unrealistic that all users share the same avatar image, thus we're
-    // warning if we can't find our marker (%s)
-    if (!externalAvatarUrl.contains(REPLACE_MARKER)) {
+    // warning if we can't find our marker
+    if (!externalAvatarUrl.contains(USER_PLACEHOLDER)) {
       Logger log = LoggerFactory.getLogger(ExternalUrlAvatarProvider.class);
       log.warn("Avatar provider url '" + externalAvatarUrl
-          + "' does not contain " + REPLACE_MARKER
+          + "' does not contain " + USER_PLACEHOLDER
           + ", so cannot replace it with username");
       return null;
     }
@@ -94,20 +94,20 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   }
 
   /**
-   * Takes #{replacement} and substitutes the marker REPLACE_MARKER in #{url}
+   * Takes #{replacement} and substitutes the marker USER_PLACEHOLDER in #{url}
    * after it has been URL encoded
    *
-   * @param url The URL, usually containing #{REPLACE_MARKER}
+   * @param url The URL, usually containing #{USER_PLACEHOLDER}
    * @param replacement String to be put inside
    * @return new URL
    */
   private String replaceInUrl(String url, String replacement) {
     if (replacement == null || url == null
-        || url.contains(REPLACE_MARKER) == false) {
+        || url.contains(USER_PLACEHOLDER) == false) {
       return url;
     }
 
     // as we can't assume anything of 'replacement', we're URL encoding it
-    return url.replace(REPLACE_MARKER, Url.encode(replacement));
+    return url.replace(USER_PLACEHOLDER, Url.encode(replacement));
   }
 }
