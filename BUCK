@@ -5,7 +5,7 @@ gerrit_plugin(
   manifest_entries = [
     'Gerrit-PluginName: avatars-external',
     'Implementation-Title: External Avatar plugin',
-    'Implementation-URL: https://gerrit-review.googlesource.com/#/admin/projects/plugins/avatars/external',
+    'Implementation-URL: https://gerrit-review.googlesource.com/#/admin/projects/plugins/avatars-external',
     'Gerrit-AvatarProvider: com.googlesource.gerrit.plugins.avatars.external.ExternalUrlAvatarProvider',
   ],
 )
