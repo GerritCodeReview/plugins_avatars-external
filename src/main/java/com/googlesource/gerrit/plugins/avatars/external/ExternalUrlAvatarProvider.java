@@ -34,6 +34,7 @@ import org.slf4j.LoggerFactory;
 public class ExternalUrlAvatarProvider implements AvatarProvider {
 
   private static final String USER_PLACEHOLDER = "${user}";
+  private static final String EMAIL_PLACEHOLDER = "${email}";
 
   private final String pluginName;
   private final boolean ssl;
@@ -57,28 +58,35 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   public String getUrl(IdentifiedUser forUser, int imageSize) {
     if (externalAvatarUrl == null) {
       Logger log = LoggerFactory.getLogger(ExternalUrlAvatarProvider.class);
-      log.warn("Avatar URL is not configured, cannot show avatars. Please configure plugin."
-          + pluginName + ".url in etc/gerrit.config");
+      log.warn(
+          "Avatar URL is not configured, cannot show avatars. Please configure plugin."
+              + pluginName + ".url in etc/gerrit.config");
       return null;
     }
 
-    // it is unrealistic that all users share the same avatar image, thus we're
+    // it is unrealistic that all users share the same avatar image, thus
+    // we're
     // warning if we can't find our marker
-    if (!externalAvatarUrl.contains(USER_PLACEHOLDER)) {
+    if (!externalAvatarUrl.contains(USER_PLACEHOLDER)
+        && !externalAvatarUrl.contains(EMAIL_PLACEHOLDER)) {
       Logger log = LoggerFactory.getLogger(ExternalUrlAvatarProvider.class);
-      log.warn("Avatar provider url '" + externalAvatarUrl
-          + "' does not contain " + USER_PLACEHOLDER
-          + ", so cannot replace it with username");
+      log.warn(
+          "Avatar provider url '" + externalAvatarUrl + "' does not contain "
+              + USER_PLACEHOLDER + ", so cannot replace it with username");
       return null;
     }
 
-    // as the Gerrit only sends a 302 Found, the avatar is loaded by the user
+    // as the Gerrit only sends a 302 Found, the avatar is loaded by the
+    // user
     // agent and thus SSL matters for the avatar image, if Gerrit uses SSL
     if (ssl && externalAvatarUrl.startsWith("http://")) {
       externalAvatarUrl = externalAvatarUrl.replace("http://", "https://");
     }
     StringBuilder avatarUrl = new StringBuilder();
-    avatarUrl.append(replaceInUrl(externalAvatarUrl, forUser.getUserName()));
+    String userReplacedAvatarURL = replaceInUrl(USER_PLACEHOLDER,
+        externalAvatarUrl, forUser.getUserName());
+    avatarUrl.append(replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarURL,
+        forUser.getAccount().getPreferredEmail()));
     if (imageSize > 0 && sizeParameter != null) {
       avatarUrl.append("?");
       avatarUrl.append(sizeParameter.replaceAll("\\$\\{size\\}",
@@ -89,25 +97,30 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
 
   @Override
   public String getChangeAvatarUrl(IdentifiedUser forUser) {
-
-    return replaceInUrl(avatarChangeUrl, forUser.getUserName());
+    String userReplacedAvatarChangeURL = replaceInUrl(USER_PLACEHOLDER,
+        avatarChangeUrl, forUser.getUserName());
+    return replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarChangeURL,
+        forUser.getAccount().getPreferredEmail());
   }
 
   /**
    * Takes #{replacement} and substitutes the marker USER_PLACEHOLDER in #{url}
    * after it has been URL encoded
-   *
-   * @param url The URL, usually containing #{USER_PLACEHOLDER}
-   * @param replacement String to be put inside
+   * @param placeholder 
+   *          The placeholder to be replaced
+   * @param url
+   *          The URL, usually containing #{USER_PLACEHOLDER}
+   * @param replacement
+   *          String to be put inside
    * @return new URL
    */
-  private String replaceInUrl(String url, String replacement) {
-    if (replacement == null || url == null
-        || url.contains(USER_PLACEHOLDER) == false) {
+  private String replaceInUrl(String placeholder, String url,
+      String replacement) {
+    if (!url.contains(placeholder)) {
       return url;
     }
 
     // as we can't assume anything of 'replacement', we're URL encoding it
-    return url.replace(USER_PLACEHOLDER, Url.encode(replacement));
+    return url.replace(placeholder, Url.encode(replacement));
   }
 }
