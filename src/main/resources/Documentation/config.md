@@ -13,13 +13,16 @@ file.
 
 <a id="url">
 `plugin.@PLUGIN@.url`
-:	The location of avatar images containing `${user}`, which will then
-	be replaced by the `username`. Required.
+:	The location of avatar images. Urls containing `${user}` will
+	be replaced by the `username` and `${email}` will be replaced with
+	the user's `email address`. Required.
 
 <a id="changeUrl">
 `plugin.@PLUGIN@.changeUrl`
 :	The URL shown in Gerrit's user settings to tell the user, where the
-	avatar can be changed. Optional.
+	avatar can be changed. Urls containing `${user}` will
+	be replaced by the `username` and `${email}` will be replaced with
+	the user's `email address`. Optional.
 
 <a id="sizeParameter">
 `plugin.@PLUGIN@.sizeParameter`
