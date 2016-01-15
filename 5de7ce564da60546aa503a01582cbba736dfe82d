@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e71d26f8_baa81198",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-01-15T05:24:29Z",
+      "side": 1,
+      "message": "this should also be updated.",
+      "range": {
+        "startLine": 107,
+        "startChar": 42,
+        "endLine": 107,
+        "endChar": 69
+      },
+      "revId": "5de7ce564da60546aa503a01582cbba736dfe82d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7c4a27f_5970c3af",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
         "patchSetId": 2
@@ -42,6 +65,29 @@
         "startChar": 23,
         "endLine": 109,
         "endChar": 24
+      },
+      "revId": "5de7ce564da60546aa503a01582cbba736dfe82d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7c4a27f_196a4bbc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-01-15T05:24:29Z",
+      "side": 1,
+      "message": "Also here.",
+      "range": {
+        "startLine": 112,
+        "startChar": 23,
+        "endLine": 112,
+        "endChar": 61
       },
       "revId": "5de7ce564da60546aa503a01582cbba736dfe82d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
