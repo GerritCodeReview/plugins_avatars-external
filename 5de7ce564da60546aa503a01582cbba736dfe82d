@@ -22,6 +22,30 @@
       "revId": "5de7ce564da60546aa503a01582cbba736dfe82d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e71d26f8_9aa3cdbd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-01-15T05:23:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7c4a27f_5970c3af",
+      "range": {
+        "startLine": 109,
+        "startChar": 23,
+        "endLine": 109,
+        "endChar": 24
+      },
+      "revId": "5de7ce564da60546aa503a01582cbba736dfe82d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
