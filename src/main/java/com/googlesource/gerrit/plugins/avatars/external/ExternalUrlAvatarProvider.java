@@ -85,7 +85,11 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     avatarUrl.append(replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarURL,
         forUser.getAccount().getPreferredEmail()));
     if (imageSize > 0 && sizeParameter != null) {
-      avatarUrl.append("?");
+      if (avatarUrl.indexOf("?") < 0) {
+        avatarUrl.append("?");
+      } else {
+        avatarUrl.append("&");
+      }
       avatarUrl.append(sizeParameter.replaceAll("\\$\\{size\\}",
           Integer.toString(imageSize)));
     }
