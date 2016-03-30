@@ -22,6 +22,30 @@
       "revId": "9b3e5c68b8e396a55589e2278ddb9bb72f2fa63f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71065dd1_37a718d0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1016342
+      },
+      "writtenOn": "2016-03-30T07:43:43Z",
+      "side": 1,
+      "message": "I\u0027m sure there is.\nBut given the current \u0027sizeParameter\u0027 configuration, we really just need simple string manipulation.\njava.net.URL can only replace the complete query and I wouldn\u0027t add any new dependency just for this.\n\nWhen we want to avoid the string manipulation, then I\u0027d prefer to really just side-step the issue and require the user to provide the complete URL.\n\nE.g.: add a new parameter \u0027squareUrl\u0027 (or similar) and use this instead of \u0027url\u0027 when imageSize\u003e0.\nThe old \u0027sizeParameter\u0027 (and our string manipulation) could then be deprecated and would only be used when the new config is not available.",
+      "parentUuid": "b120d52e_f93bf71e",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "9b3e5c68b8e396a55589e2278ddb9bb72f2fa63f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
