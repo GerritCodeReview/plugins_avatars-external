@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d091ec62_4bc9c5b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-11-22T13:07:14Z",
+      "side": 1,
+      "message": "To be consistent with all other merges this should be:\n\n  Merge branch \u0027stable-2.13\u0027\n\nAlso use the --log option when doing the merge, so that the commits which are merged in are listed in the commit message.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 49
+      },
+      "revId": "5eda9d4ffcc4d4d1204efb827c601c862aaac160",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
