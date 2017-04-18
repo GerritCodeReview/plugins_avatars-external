@@ -114,7 +114,8 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
    */
   private String replaceInUrl(String placeholder, String url,
       String replacement) {
-    if (url == null || !url.contains(placeholder)) {
+    if (url == null || replacement == null
+        || !url.contains(placeholder)) {
       return url;
     }
 
