@@ -22,6 +22,30 @@
       "revId": "8f45657b9a39757f73c345bdab9b6b60d8a3c9fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b639ce07_ae9c0ed9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2019-06-06T15:06:35Z",
+      "side": 1,
+      "message": "Done:\n\nhttps://gerrit-review.googlesource.com/c/plugins/avatars-external/+/227173",
+      "parentUuid": "65053ea2_2592138a",
+      "range": {
+        "startLine": 102,
+        "startChar": 46,
+        "endLine": 102,
+        "endChar": 53
+      },
+      "revId": "8f45657b9a39757f73c345bdab9b6b60d8a3c9fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
