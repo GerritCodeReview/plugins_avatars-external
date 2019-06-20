@@ -99,7 +99,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   @Override
   public String getChangeAvatarUrl(IdentifiedUser forUser) {
     String userReplacedAvatarChangeURL = replaceInUrl(USER_PLACEHOLDER,
-        avatarChangeUrl, forUser.getUserName().orElse(null));
+        avatarChangeUrl, forUser.getUserName().get());
     return replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarChangeURL,
         forUser.getAccount().getPreferredEmail());
   }
