@@ -41,6 +41,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   private String externalAvatarUrl;
   private String avatarChangeUrl;
   private String sizeParameter;
+  private boolean lowerCase;
 
   @Inject
   ExternalUrlAvatarProvider(PluginConfigFactory cfgFactory,
@@ -51,6 +52,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     externalAvatarUrl = cfg.getString("url");
     avatarChangeUrl = cfg.getString("changeUrl");
     sizeParameter = cfg.getString("sizeParameter");
+    lowerCase = cfg.getBoolean("lowerCase", false);
     ssl = canonicalUrl != null && canonicalUrl.startsWith("https://");
   }
 
@@ -117,6 +119,9 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     if (url == null || replacement == null
         || !url.contains(placeholder)) {
       return url;
+    }
+    if (lowerCase) {
+      replacement = replacement.toLowerCase();
     }
 
     // as we can't assume anything of 'replacement', we're URL encoding it
