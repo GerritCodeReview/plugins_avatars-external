@@ -29,5 +29,9 @@ file.
 :	URL parameter with `${size}` placeholder to forward the preferred
 	image size to the avatar provider. Optional.
 
+<a id="lowerCase">
+`plugin.@PLUGIN@.lowerCase`
+:	Convert the username and email to lower case. Optional.
+
 Please note that `http://` URLs will be automatically rewritten to
 `https://`, if `gerrit.canonicalWebUrl` uses HTTPS.

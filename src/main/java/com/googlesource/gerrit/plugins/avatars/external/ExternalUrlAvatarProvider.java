@@ -41,6 +41,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   private String externalAvatarUrl;
   private String avatarChangeUrl;
   private String sizeParameter;
+  private boolean lowerCase;
 
   @Inject
   ExternalUrlAvatarProvider(PluginConfigFactory cfgFactory,
@@ -51,6 +52,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     externalAvatarUrl = cfg.getString("url");
     avatarChangeUrl = cfg.getString("changeUrl");
     sizeParameter = cfg.getString("sizeParameter");
+    lowerCase = cfg.getBoolean("lowerCase", false);
     ssl = canonicalUrl != null && canonicalUrl.startsWith("https://");
   }
 
@@ -81,9 +83,9 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     }
     StringBuilder avatarUrl = new StringBuilder();
     String userReplacedAvatarURL = replaceInUrl(USER_PLACEHOLDER,
-        externalAvatarUrl, forUser.getUserName().orElse(null));
+        externalAvatarUrl, forUser.getUserName().orElse(null), lowerCase);
     avatarUrl.append(replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarURL,
-        forUser.getAccount().getPreferredEmail()));
+        forUser.getAccount().getPreferredEmail(), lowerCase));
     if (imageSize > 0 && sizeParameter != null) {
       if (avatarUrl.indexOf("?") < 0) {
         avatarUrl.append("?");
@@ -99,9 +101,9 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   @Override
   public String getChangeAvatarUrl(IdentifiedUser forUser) {
     String userReplacedAvatarChangeURL = replaceInUrl(USER_PLACEHOLDER,
-        avatarChangeUrl, forUser.getUserName().orElse(null));
+        avatarChangeUrl, forUser.getUserName().orElse(null), lowerCase);
     return replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarChangeURL,
-        forUser.getAccount().getPreferredEmail());
+        forUser.getAccount().getPreferredEmail(), lowerCase);
   }
 
   /**
@@ -113,10 +115,13 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
    * @return new URL
    */
   private String replaceInUrl(String placeholder, String url,
-      String replacement) {
+      String replacement, boolean lowerCase) {
     if (url == null || replacement == null
         || !url.contains(placeholder)) {
       return url;
+    }
+    if(lowerCase) {
+      replacement = replacement.toLowerCase();
     }
 
     // as we can't assume anything of 'replacement', we're URL encoding it
