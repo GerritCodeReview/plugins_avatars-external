@@ -9,6 +9,7 @@ file.
     url = http://example.org/avatars/${user}.jpg
     changeUrl = http://example.org/account.html
     sizeParameter = s=${size}x${size}
+    lowerCase = true
 ```
 
 <a id="url">
@@ -28,6 +29,10 @@ file.
 `plugin.@PLUGIN@.sizeParameter`
 :	URL parameter with `${size}` placeholder to forward the preferred
 	image size to the avatar provider. Optional.
+
+<a id="lowerCase">
+`plugin.@PLUGIN@.lowerCase`
+:	Convert the username and email to lower case. Defaultvalue = false. Optional.
 
 Please note that `http://` URLs will be automatically rewritten to
 `https://`, if `gerrit.canonicalWebUrl` uses HTTPS.
