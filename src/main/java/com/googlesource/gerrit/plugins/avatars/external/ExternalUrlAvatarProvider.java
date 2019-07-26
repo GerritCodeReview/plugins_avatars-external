@@ -83,7 +83,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     String userReplacedAvatarURL = replaceInUrl(USER_PLACEHOLDER,
         externalAvatarUrl, forUser.getUserName().orElse(null));
     avatarUrl.append(replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarURL,
-        forUser.getAccount().getPreferredEmail()));
+        forUser.getAccount().preferredEmail()));
     if (imageSize > 0 && sizeParameter != null) {
       if (avatarUrl.indexOf("?") < 0) {
         avatarUrl.append("?");
@@ -101,7 +101,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     String userReplacedAvatarChangeURL = replaceInUrl(USER_PLACEHOLDER,
         avatarChangeUrl, forUser.getUserName().orElse(null));
     return replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarChangeURL,
-        forUser.getAccount().getPreferredEmail());
+        forUser.getAccount().preferredEmail());
   }
 
   /**
