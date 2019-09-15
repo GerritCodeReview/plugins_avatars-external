@@ -65,17 +65,6 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
       return null;
     }
 
-    // it is unrealistic that all users share the same avatar image, thus we're
-    // warning if we can't find our marker
-    if (!externalAvatarUrl.contains(USER_PLACEHOLDER)
-        && !externalAvatarUrl.contains(EMAIL_PLACEHOLDER)) {
-      Logger log = LoggerFactory.getLogger(ExternalUrlAvatarProvider.class);
-      log.warn("Avatar provider url '" + externalAvatarUrl
-          + "' does not contain " + USER_PLACEHOLDER
-          + ", so cannot replace it with username");
-      return null;
-    }
-
     // as the Gerrit only sends a 302 Found, the avatar is loaded by the user
     // agent and thus SSL matters for the avatar image, if Gerrit uses SSL
     if (ssl && externalAvatarUrl.startsWith("http://")) {
@@ -84,6 +73,17 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     StringBuilder avatarUrl = new StringBuilder();
     String userReplacedAvatarURL = fillOutTemplate(externalAvatarUrl,
         forUser);
+
+    // It is unrealistic that all users share the same avatar image, thus we're
+    // warning if the URL didn't change
+    if (userReplacedAvatarURL.equals(externalAvatarUrl)) {
+      Logger log = LoggerFactory.getLogger(ExternalUrlAvatarProvider.class);
+      log.warn("Avatar provider url '" + externalAvatarUrl
+          + "' does not contain any placeholders"
+          + ", so cannot customize it for users.");
+      return null;
+    }
+
     avatarUrl.append(userReplacedAvatarURL);
     if (imageSize > 0 && sizeParameter != null) {
       if (avatarUrl.indexOf("?") < 0) {
