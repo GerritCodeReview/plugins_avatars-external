@@ -135,6 +135,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     Map<String, Function<IdentifiedUser, String>> vars = new HashMap<>();
     vars.put("${user}", (u) -> { return u.getUserName().orElse(null); });
     vars.put("${email}", (u) -> { return u.getAccount().preferredEmail(); });
+    vars.put("${id}", (u) -> { return Integer.toString(u.getAccountId().get()); });
 
     String workString = template;
 
