@@ -14,6 +14,10 @@
 
 package com.googlesource.gerrit.plugins.avatars.external;
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.function.Function;
+
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.annotations.Listen;
 import com.google.gerrit.extensions.annotations.PluginName;
@@ -32,9 +36,6 @@ import org.slf4j.LoggerFactory;
 @Listen
 @Singleton
 public class ExternalUrlAvatarProvider implements AvatarProvider {
-
-  private static final String USER_PLACEHOLDER = "${user}";
-  private static final String EMAIL_PLACEHOLDER = "${email}";
 
   private final String pluginName;
   private final boolean ssl;
@@ -131,9 +132,18 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
    * @return filled in string
    */
   private String fillOutTemplate(String template, IdentifiedUser user) {
-    String workString = replaceInUrl(USER_PLACEHOLDER,
-        template, user.getUserName().orElse(null));
-    return replaceInUrl(EMAIL_PLACEHOLDER, workString,
-        user.getAccount().preferredEmail());
+    Map<String, Function<IdentifiedUser, String>> vars = new HashMap<>();
+    vars.put("${user}", (u) -> { return u.getUserName().orElse(null); });
+    vars.put("${email}", (u) -> { return u.getAccount().preferredEmail(); });
+
+    String workString = template;
+
+    for (Map.Entry<String, Function<IdentifiedUser, String>> entry
+        : vars.entrySet()) {
+      workString = replaceInUrl(entry.getKey(), workString,
+      entry.getValue().apply(user));
+    }
+
+    return workString;
   }
 }
