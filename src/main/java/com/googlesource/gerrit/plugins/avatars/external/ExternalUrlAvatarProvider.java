@@ -82,10 +82,9 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
       externalAvatarUrl = externalAvatarUrl.replace("http://", "https://");
     }
     StringBuilder avatarUrl = new StringBuilder();
-    String userReplacedAvatarURL = replaceInUrl(USER_PLACEHOLDER,
-        externalAvatarUrl, forUser.getUserName().orElse(null));
-    avatarUrl.append(replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarURL,
-        forUser.getAccount().preferredEmail()));
+    String userReplacedAvatarURL = fillOutTemplate(externalAvatarUrl,
+        forUser);
+    avatarUrl.append(userReplacedAvatarURL);
     if (imageSize > 0 && sizeParameter != null) {
       if (avatarUrl.indexOf("?") < 0) {
         avatarUrl.append("?");
@@ -100,10 +99,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
 
   @Override
   public String getChangeAvatarUrl(IdentifiedUser forUser) {
-    String userReplacedAvatarChangeURL = replaceInUrl(USER_PLACEHOLDER,
-        avatarChangeUrl, forUser.getUserName().orElse(null));
-    return replaceInUrl(EMAIL_PLACEHOLDER, userReplacedAvatarChangeURL,
-        forUser.getAccount().preferredEmail());
+    return fillOutTemplate(avatarChangeUrl, forUser);
   }
 
   /**
@@ -126,5 +122,18 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
 
     // as we can't assume anything of 'replacement', we're URL encoding it
     return url.replace(placeholder, Url.encode(replacement));
+  }
+
+  /**
+   * Takes a template string and a user and fills in the template variables
+   * @param template The template string to work from
+   * @param user The user object to get information from
+   * @return filled in string
+   */
+  private String fillOutTemplate(String template, IdentifiedUser user) {
+    String workString = replaceInUrl(USER_PLACEHOLDER,
+        template, user.getUserName().orElse(null));
+    return replaceInUrl(EMAIL_PLACEHOLDER, workString,
+        user.getAccount().preferredEmail());
   }
 }
