@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "169218b2_8d4be8cf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2019-09-23T08:44:43Z",
+      "side": 1,
+      "message": "u\n\nParentheses are not necessary when only one parameter is used.",
+      "range": {
+        "startLine": 136,
+        "startChar": 24,
+        "endLine": 136,
+        "endChar": 27
+      },
+      "revId": "c228e35bc9921771deb0c7c411892303561c390d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55986e1b_4ae82aa6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2019-09-23T08:44:43Z",
+      "side": 1,
+      "message": "u",
+      "range": {
+        "startLine": 137,
+        "startChar": 25,
+        "endLine": 137,
+        "endChar": 29
+      },
+      "revId": "c228e35bc9921771deb0c7c411892303561c390d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2a76e13_f47e4599",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2019-09-23T08:44:43Z",
+      "side": 1,
+      "message": "What is the advantage of this code which creates a Map\u003cString, Function\u003e and then iterates\nover that map and executes the given function over the code in the base version?\n\nI mean with the base version looks quite clean and has only 3 lines of code here and the\nnew code has 13 lines of code which do not seem to justify their weight?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 5
+      },
+      "revId": "c228e35bc9921771deb0c7c411892303561c390d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
