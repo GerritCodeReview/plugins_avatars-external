@@ -68,6 +68,30 @@
       "revId": "c228e35bc9921771deb0c7c411892303561c390d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c214000e_4dd94abb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1086255
+      },
+      "writtenOn": "2019-09-23T17:43:46Z",
+      "side": 1,
+      "message": "I was looking for a more general version of this to be able to add new templates more easily. I guess I went overboard a bit ;-)\n\nshould I just insert a line like \"workString \u003d replaceInUrl(\"${id}\", workString, ...)\" before the return in the follow up commit?",
+      "parentUuid": "e2a76e13_f47e4599",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 5
+      },
+      "revId": "c228e35bc9921771deb0c7c411892303561c390d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
