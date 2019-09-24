@@ -16,6 +16,24 @@
       "revId": "63c16b4afe62c0fe1c93502fc5135bed731689e9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "148daf55_86fca392",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1086255
+      },
+      "writtenOn": "2019-09-24T12:37:16Z",
+      "side": 1,
+      "message": "Done in a follow up. There\u0027s only this one file, but there\u0027s a bunch of things it reformatted",
+      "parentUuid": "35201d5c_5be5396b",
+      "revId": "63c16b4afe62c0fe1c93502fc5135bed731689e9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
