@@ -67,7 +67,6 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     if (ssl && externalAvatarUrl.startsWith("http://")) {
       externalAvatarUrl = externalAvatarUrl.replace("http://", "https://");
     }
-    StringBuilder avatarUrl = new StringBuilder();
     String userReplacedAvatarURL = fillOutTemplate(externalAvatarUrl,
         forUser);
 
@@ -81,7 +80,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
       return null;
     }
 
-    avatarUrl.append(userReplacedAvatarURL);
+    StringBuilder avatarUrl = new StringBuilder(userReplacedAvatarURL);
     if (imageSize > 0 && sizeParameter != null) {
       if (avatarUrl.indexOf("?") < 0) {
         avatarUrl.append("?");
