@@ -92,6 +92,30 @@
       "revId": "c228e35bc9921771deb0c7c411892303561c390d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "668be0c6_49e1cffe",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2019-09-24T08:00:44Z",
+      "side": 1,
+      "message": "\u003e should I just insert a line like \"workString \u003d replaceInUrl(\"${id}\", workString, ...)\" before the return in the follow up commit?\n\nYes :-)",
+      "parentUuid": "c214000e_4dd94abb",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 5
+      },
+      "revId": "c228e35bc9921771deb0c7c411892303561c390d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
