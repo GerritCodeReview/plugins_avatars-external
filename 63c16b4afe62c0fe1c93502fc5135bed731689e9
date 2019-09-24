@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35201d5c_5be5396b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2019-09-24T10:12:40Z",
+      "side": 1,
+      "message": "nit: This and other statements in this method are unnecessarily split into two lines.\n\nUnrelated to this change I think we should once apply the google-java-format to all java\nfiles in this repository.",
+      "revId": "63c16b4afe62c0fe1c93502fc5135bed731689e9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
