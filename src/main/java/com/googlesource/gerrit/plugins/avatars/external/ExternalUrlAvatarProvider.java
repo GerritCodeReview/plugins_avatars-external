@@ -25,7 +25,6 @@ import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,7 +40,8 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   private boolean lowerCase;
 
   @Inject
-  ExternalUrlAvatarProvider(PluginConfigFactory cfgFactory,
+  ExternalUrlAvatarProvider(
+      PluginConfigFactory cfgFactory,
       @PluginName String pluginName,
       @CanonicalWebUrl @Nullable String canonicalUrl) {
     this.pluginName = pluginName;
@@ -57,8 +57,10 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   public String getUrl(IdentifiedUser forUser, int imageSize) {
     if (externalAvatarUrl == null) {
       Logger log = LoggerFactory.getLogger(ExternalUrlAvatarProvider.class);
-      log.warn("Avatar URL is not configured, cannot show avatars. Please configure plugin."
-          + pluginName + ".url in etc/gerrit.config");
+      log.warn(
+          "Avatar URL is not configured, cannot show avatars. Please configure plugin."
+              + pluginName
+              + ".url in etc/gerrit.config");
       return null;
     }
 
@@ -67,16 +69,17 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     if (ssl && externalAvatarUrl.startsWith("http://")) {
       externalAvatarUrl = externalAvatarUrl.replace("http://", "https://");
     }
-    String userReplacedAvatarURL = fillOutTemplate(externalAvatarUrl,
-        forUser);
+    String userReplacedAvatarURL = fillOutTemplate(externalAvatarUrl, forUser);
 
     // It is unrealistic that all users share the same avatar image, thus we're
     // warning if the URL didn't change
     if (userReplacedAvatarURL.equals(externalAvatarUrl)) {
       Logger log = LoggerFactory.getLogger(ExternalUrlAvatarProvider.class);
-      log.warn("Avatar provider url '" + externalAvatarUrl
-          + "' does not contain any placeholders"
-          + ", so cannot customize it for users.");
+      log.warn(
+          "Avatar provider url '"
+              + externalAvatarUrl
+              + "' does not contain any placeholders"
+              + ", so cannot customize it for users.");
       return null;
     }
 
@@ -87,8 +90,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
       } else {
         avatarUrl.append("&");
       }
-      avatarUrl.append(sizeParameter.replaceAll("\\$\\{size\\}",
-          Integer.toString(imageSize)));
+      avatarUrl.append(sizeParameter.replaceAll("\\$\\{size\\}", Integer.toString(imageSize)));
     }
     return avatarUrl.toString();
   }
@@ -99,17 +101,16 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   }
 
   /**
-   * Takes #{replacement} and substitutes the marker #{placeholder} in #{url}
-   * after it has been URL encoded
+   * Takes #{replacement} and substitutes the marker #{placeholder} in #{url} after it has been URL
+   * encoded
+   *
    * @param placeholder The placeholder to be replaced
    * @param url The URL, usually containing #{placeholder}
    * @param replacement String to be put inside
    * @return new URL
    */
-  private String replaceInUrl(String placeholder, String url,
-      String replacement) {
-    if (url == null || replacement == null
-        || !url.contains(placeholder)) {
+  private String replaceInUrl(String placeholder, String url, String replacement) {
+    if (url == null || replacement == null || !url.contains(placeholder)) {
       return url;
     }
     if (lowerCase) {
@@ -122,16 +123,14 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
 
   /**
    * Takes a template string and a user and fills in the template variables
+   *
    * @param template The template string to work from
    * @param user The user object to get information from
    * @return filled in string
    */
   private String fillOutTemplate(String template, IdentifiedUser user) {
-    String workString = replaceInUrl("${user}",
-        template, user.getUserName().orElse(null));
-    workString = replaceInUrl("${id}", workString,
-        Integer.toString(user.getAccountId().get()));
-    return replaceInUrl("${email}", workString,
-        user.getAccount().preferredEmail());
+    String workString = replaceInUrl("${user}", template, user.getUserName().orElse(null));
+    workString = replaceInUrl("${id}", workString, Integer.toString(user.getAccountId().get()));
+    return replaceInUrl("${email}", workString, user.getAccount().preferredEmail());
   }
 }
