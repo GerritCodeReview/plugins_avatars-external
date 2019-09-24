@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16ee0fba_9343cf64",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProvider.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2019-09-24T11:47:35Z",
+      "side": 1,
+      "message": "unrelated to this change but if you are already changing this code then move this line\ndown just before line 87 as avatarUrl is not needed before line 87 is reached.",
+      "revId": "f4d12d66094fd3262f49630d6ab5c46653cfacb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
