@@ -131,6 +131,6 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   private String fillOutTemplate(String template, IdentifiedUser user) {
     String workString = replaceInUrl("${user}", template, user.getUserName().orElse(null));
     workString = replaceInUrl("${id}", workString, Integer.toString(user.getAccountId().get()));
-    return replaceInUrl("${email}", workString, user.getAccount().getPreferredEmail());
+    return replaceInUrl("${email}", workString, user.getAccount().preferredEmail());
   }
 }
