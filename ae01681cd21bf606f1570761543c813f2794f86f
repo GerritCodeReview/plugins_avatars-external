@@ -88,6 +88,24 @@
       "parentUuid": "b63c7b97_ecaad3ef",
       "revId": "ae01681cd21bf606f1570761543c813f2794f86f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0743cc82_319a1aed",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProviderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2022-03-04T09:36:29Z",
+      "side": 1,
+      "message": "Yes, the reference given to the constructor is the same, but it is directly used within the constructor to extract values of the Gerrit config. Thus, I have to call the constructor again, if the configuration changes.\nThe current PatchSet was created after Wendy\u0027s comment to reduce the code duplication as she asked for.",
+      "parentUuid": "4aa3deb0_4bd677db",
+      "revId": "ae01681cd21bf606f1570761543c813f2794f86f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
