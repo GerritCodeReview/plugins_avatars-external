@@ -106,6 +106,24 @@
       "parentUuid": "4aa3deb0_4bd677db",
       "revId": "ae01681cd21bf606f1570761543c813f2794f86f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ed4091_6665cfa9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProviderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-04T09:39:53Z",
+      "side": 1,
+      "message": "My previous statement are not completely correct because the ExternalUrlAvatarProvider extracts all the info from the given PluginConfig already in its constructor. Any change in the cfg mock, after the construction are therefore not applied.",
+      "parentUuid": "4aa3deb0_4bd677db",
+      "revId": "ae01681cd21bf606f1570761543c813f2794f86f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
