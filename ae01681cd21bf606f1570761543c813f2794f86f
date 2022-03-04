@@ -124,6 +124,24 @@
       "parentUuid": "4aa3deb0_4bd677db",
       "revId": "ae01681cd21bf606f1570761543c813f2794f86f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "740a4f2e_b4cc1719",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProviderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2022-03-04T13:25:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d2ed4091_6665cfa9",
+      "revId": "ae01681cd21bf606f1570761543c813f2794f86f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

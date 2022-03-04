@@ -16,6 +16,24 @@
       "message": "why is this method not re-used from the line 59?\n\nDo we need this method at all? It is a one-liner and inlining it may actually produce a more readable code (albeit with more repetition)\n\nThe method name should rather be \"createExternal...\" as it creates a new instance every time it is called (it doesn\u0027t get an already existing instance).",
       "revId": "cb826aa6f0345819d9c5146f052e3676bbe0d760",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f35a2333_acfea008",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProviderTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2022-03-04T13:25:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37333e0c_ce7074b9",
+      "revId": "cb826aa6f0345819d9c5146f052e3676bbe0d760",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
