@@ -70,6 +70,24 @@
       "parentUuid": "5743c635_4ac5038c",
       "revId": "ae01681cd21bf606f1570761543c813f2794f86f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aa3deb0_4bd677db",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProviderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-04T09:23:28Z",
+      "side": 1,
+      "message": "\u003e Because the constructor depends on the mocked Gerrit configuration, which changes between tests.\n\nThe mocked Gerrit configuration changes but the reference to the mock, which is passed to the constructor, doesn\u0027t change. Therefore, the creation of the avatarProvider can be moved to the setup method.\n\nThe current code anyway first creates the avatarProvider and after that performs additional, test specific, cfg mock configuration. So the order of statements would still be the same when the creation of the avatarProvider is moved to the setup method.",
+      "parentUuid": "b63c7b97_ecaad3ef",
+      "revId": "ae01681cd21bf606f1570761543c813f2794f86f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
