@@ -1,16 +1,16 @@
 Build
 =====
 
-This plugin is built using Buck.
+This plugin is built in the Gerrit source tree using Bazel.
 
 
-Buck
+Bazel
 ----
 
-From gerrit source directory:
+From the plugin source directory:
 
 ```
-buck build plugins/avatars-external
+bazel build avatars-external
 ```
 
-You will find the `avatars-external.jar` file in `buck-out/gen/plugins/avatars-external`.
+You will find the `avatars-external.jar` file in `../../bazel-bin/plugins/avatars-external/avatars-external.jar`.
