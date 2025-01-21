@@ -38,6 +38,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
   private String avatarChangeUrl;
   private String sizeParameter;
   private boolean lowerCase;
+  private boolean upperCaseUsername;
 
   @Inject
   ExternalUrlAvatarProvider(
@@ -50,6 +51,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     avatarChangeUrl = cfg.getString("changeUrl");
     sizeParameter = cfg.getString("sizeParameter");
     lowerCase = cfg.getBoolean("lowerCase", false);
+    upperCaseUsername = cfg.getBoolean("upperCaseUsername", false);
     ssl = canonicalUrl != null && canonicalUrl.startsWith("https://");
   }
 
@@ -113,7 +115,9 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     if (url == null || replacement == null || !url.contains(placeholder)) {
       return url;
     }
-    if (lowerCase) {
+    if ("${user}".equals(replacement) && upperCaseUsername) {
+      replacement = replacement.toUpperCase();
+    } else if (lowerCase) {
       replacement = replacement.toLowerCase();
     }
 
