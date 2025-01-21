@@ -34,5 +34,9 @@ file.
 `plugin.@PLUGIN@.lowerCase`
 :	Convert the username and email to lower case. Default value = false. Optional.
 
+<a id="upperCaseUsername">
+`plugin.@PLUGIN@.upperCaseUsername`
+:	Convert the username upper case. Default value = false. Optional.
+
 Please note that `http://` URLs will be automatically rewritten to
 `https://`, if `gerrit.canonicalWebUrl` uses HTTPS.
