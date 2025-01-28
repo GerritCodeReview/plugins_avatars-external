@@ -115,7 +115,7 @@ public class ExternalUrlAvatarProvider implements AvatarProvider {
     if (url == null || replacement == null || !url.contains(placeholder)) {
       return url;
     }
-    if ("${user}".equals(replacement) && upperCaseUsername) {
+    if ("${user}".equals(placeholder) && upperCaseUsername) {
       replacement = replacement.toUpperCase();
     } else if (lowerCase) {
       replacement = replacement.toLowerCase();
