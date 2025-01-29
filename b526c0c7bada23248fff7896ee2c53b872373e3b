@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd711d8b_ea973271",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProviderTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-01-29T13:30:26Z",
+      "side": 1,
+      "message": "remove these empty statements ?",
+      "revId": "b526c0c7bada23248fff7896ee2c53b872373e3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
