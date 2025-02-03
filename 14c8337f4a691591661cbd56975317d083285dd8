@@ -16,6 +16,24 @@
       "message": "2025",
       "revId": "14c8337f4a691591661cbd56975317d083285dd8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ff5dc18_1f8a55fd",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProviderTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-02-03T15:50:39Z",
+      "side": 1,
+      "message": "this change was started back in 2022, so I think it\u0027s all fine, we just never reviewed it",
+      "parentUuid": "ae176eb1_798ea751",
+      "revId": "14c8337f4a691591661cbd56975317d083285dd8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
