@@ -16,6 +16,24 @@
       "message": "remove these empty statements ?",
       "revId": "b526c0c7bada23248fff7896ee2c53b872373e3b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d1c6f0c_50d651cb",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/avatars/external/ExternalUrlAvatarProviderTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-02-03T15:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd711d8b_ea973271",
+      "revId": "b526c0c7bada23248fff7896ee2c53b872373e3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
